@@ -13,13 +13,13 @@ end
 
 function Module.DoesExist(Object)
 	if Object == "Library" then
-		if OrionLib ~= nil then
+		if OrionLibInstance ~= nil then
 			return true
 		else
 			return false
 		end
 	elseif Object == "Window" then
-		if Window ~= nil then
+		if WindowInstance ~= nil then
 			return true
 		else
 			return false
