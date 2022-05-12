@@ -25,12 +25,12 @@ function Module:MakeWindow(Table)
 	local HidePremium = Table.HidePremium or false
 	local SaveConfig = Table.SaveConfig or nil
 	local ConfigFolder = Table.ConfigFolder or nil
-	--[[local Window = OrionLibInstance:MakeWindow({
+	local Window = OrionLibInstance:MakeWindow({
 		Name = Name
 		HidePremium = HidePremium,
 		SaveConfig = SaveConfig,
 		ConfigFolder = ConfigFolder
-	})]]
+	})
 	
 	for Index, Label in pairs(OrionInstance:GetDescendants()) do
 		if Label:IsA("TextLabel") and Label.Text == Name then
