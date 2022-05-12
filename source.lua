@@ -21,7 +21,7 @@ end
 function Module.SetLibrary(OrionLib)
 	OrionLibInstance = OrionLib
 end
-
+--[[
 function Module:MakeWindow(Table)
 	local Name = Table.Name or "Orogo"
 	local HidePremium = Table.HidePremium or false
@@ -45,7 +45,7 @@ end
 
 function Module:ChangeWindowTitle(Title)
 	TitleInstance.Text = Title
-end
+end]]
 
 function Module.DoesExist(Object)
 	if Object == "Library" then
