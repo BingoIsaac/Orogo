@@ -35,7 +35,7 @@ Orogo.SyncOrion()
 ### MakeWindow
 **Signature:** `Orogo:MakeWindow(table: Table)` <br>
 **Aliases:** N/A
-**Description:** This is a customized version of Orion's MakeWindow. Refer to (this section of this documentation)[https://github.com/shlexware/orion/blob/main/Documentation.md#creating-a-window] for more reference. <br>
+**Description:** This is a customized version of Orion's MakeWindow. Refer to [this section of this documentation](https://github.com/shlexware/orion/blob/main/Documentation.md#creating-a-window) for more reference. <br>
 **Example:**
 ```lua
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
