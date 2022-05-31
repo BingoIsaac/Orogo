@@ -5,7 +5,7 @@ Welcome to the documentation. Find where you are looking for.
 ## LOADSTRING
 
 ```lua
-local Orogo = loadstring(game:HttpGet(('orogo.bingoisaac.workers.dev')))()
+local Orogo = loadstring(game:HttpGet(('https://orogo.bingoisaac.workers.dev')))()
 ```
 
 ## API REFERENCE
@@ -17,7 +17,7 @@ local Orogo = loadstring(game:HttpGet(('orogo.bingoisaac.workers.dev')))()
 **Example:**
 ```lua
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Orogo = loadstring(game:HttpGet(('orogo.bingoisaac.workers.dev')))()
+local Orogo = loadstring(game:HttpGet(('https://orogo.bingoisaac.workers.dev')))()
 Orogo.SetLibrary(OrionLib)
 ```
 
@@ -28,7 +28,7 @@ Orogo.SetLibrary(OrionLib)
 **Example:**
 ```lua
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Orogo = loadstring(game:HttpGet(('orogo.bingoisaac.workers.dev')))()
+local Orogo = loadstring(game:HttpGet(('https://orogo.bingoisaac.workers.dev')))()
 Orogo.SyncOrion()
 ```
 
@@ -39,7 +39,7 @@ Orogo.SyncOrion()
 **Example:**
 ```lua
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Orogo = loadstring(game:HttpGet(('orogo.bingoisaac.workers.dev')))()
+local Orogo = loadstring(game:HttpGet(('https://orogo.bingoisaac.workers.dev')))()
 Orogo.SetLibrary(OrionLib)
 Orogo.SyncOrion()
 
@@ -58,7 +58,7 @@ local Window = Orogo:MakeWindow({
 **Example:**
 ```lua
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Orogo = loadstring(game:HttpGet(('orogo.bingoisaac.workers.dev')))()
+local Orogo = loadstring(game:HttpGet(('https://orogo.bingoisaac.workers.dev')))()
 Orogo.SetLibrary(OrionLib)
 Orogo.SyncOrion()
 
@@ -83,7 +83,7 @@ Orogo.SetUserRanks({
 **Example:**
 ```lua
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Orogo = loadstring(game:HttpGet(('orogo.bingoisaac.workers.dev')))()
+local Orogo = loadstring(game:HttpGet(('https://orogo.bingoisaac.workers.dev')))()
 Orogo.SetLibrary(OrionLib)
 Orogo.SyncOrion()
 
@@ -106,7 +106,7 @@ Orogo:ChangeWindowTitle("Orogo v2")
 **Example:**
 ```lua
 local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-local Orogo = loadstring(game:HttpGet(('orogo.bingoisaac.workers.dev')))()
+local Orogo = loadstring(game:HttpGet(('https://orogo.bingoisaac.workers.dev')))()
 Orogo.SetLibrary(OrionLib)
 Orogo.SyncOrion()
 
