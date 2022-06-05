@@ -22,14 +22,11 @@ local IsPremiumHidden = false
 local CurrentUserHasPremiumBypassed = false
 
 -- // Core Functions
-function Module.SyncOrion()
+function Module.Synchronize(OrionLib)
+    OrionLibInstance = OrionLib
     if CoreGui:FindFirstChild("Orion") then
     	OrionInstance = CoreGui.Orion
     end
-end
-
-function Module.SetLibrary(OrionLib)
-	OrionLibInstance = OrionLib
 end
 
 function Module:MakeWindow(Table)
