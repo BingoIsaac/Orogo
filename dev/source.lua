@@ -19,6 +19,7 @@ local RankInstance = nil
 
 --// Realization
 local IsPremiumHidden = false
+local CurrentUserHasPremiumBypassed = false
 
 -- // Core Functions
 function Module.SyncOrion()
@@ -35,6 +36,7 @@ function Module:MakeWindow(Table)
     local TitleOfWindow = Table["Name"] or "Orogo"
     IsPremiumHidden = Table["HidePremium"] or false
     local UserRanks = Table["UserRanks"] or nil
+    local PremiumBypass = Table["PremiumBypass"] or nil
 	local Window = OrionLibInstance:MakeWindow({
 		Name = TitleOfWindow,
 		HidePremium = IsPremiumHidden,
@@ -67,16 +69,33 @@ function Module:MakeWindow(Table)
     	        end
     	    end
     	end
+	end
+
+    if PremiumBypass ~= nil then
+	    if IsPremiumHidden then warn("Premium is set to hidden and cannot be set. (Orogo)") else
+    	    for Id, BypassedForUser in pairs(PremiumBypass) do
+    	        if LocalPlayer.UserId == Id and BypassedForUser == true then
+    	            CurrentUserHasPremiumBypassed = true
+    	        end
+    	    end
+    	end
     end
 
     local WindowLibrary = {}
     
     function WindowLibrary:MakeTab(Table)
         local TitleOfTab = Table["Name"] or "Tab"
+        local function HandlePremiumOnly()
+            if CurrentUserHasPremiumBypassed then
+                return false
+            else
+                return Table["PremiumOnly"] or false
+            end
+        end
         local Tab = Window:MakeTab({
             Name = TitleOfTab,
     	    Icon = Table["Icon"] or nil,
-    	    PremiumOnly = Table["PremiumOnly"] or false
+    	    PremiumOnly = HandlePremiumOnly()
 	    })
 	
 	    local TabLibrary = {}
