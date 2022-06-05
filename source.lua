@@ -101,7 +101,7 @@ function Module:AddButton(Tab, Table)
 	end
 end
 
-OrionLib:MakeNotification({
+OrionLibInstance:MakeNotification({
 	Name = "Orogo",
 	Content = "Version outdated, talk to `isaac deez bungo #0110` on Discord to help set up the newer version.",
 	Image = "rbxassetid://4483345998",
