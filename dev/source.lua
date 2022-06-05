@@ -53,9 +53,43 @@ function Module:MakeWindow(Table)
     			RankInstance = Label
     		end
     	end
+	end
+
+    local WindowLibrary = {}
+    
+    function WindowLibrary:MakeTab(Table)
+        local TitleOfTab = Table["Name"] or "Tab"
+        local Tab = Window:MakeTab({
+            Name = TitleOfTab
+    	    Icon = Table["Icon"] or nil
+    	    PremiumOnly = Table["PremiumOnly"] or false
+	    })
+	
+	    local TabLibrary = {}
+	    
+	    function TabLibrary:AddButton(Table)
+	        local TitleOfButton = Table["Name"] or "Button " .. math.huge()
+            local Button = Tab:AddButton({
+		        Name = TitleOfButton,
+		        Save = Table["Save"] or nil,
+		        Flag = Table["Flag"] or nil,
+		        Callback = Table["Callback"] or function() print("Pressed") end
+		    })
+		    task.wait()
+        	if Table["OverrideIcon"] ~= nil then
+        	    for Index, Icon in pairs(OrionInstance:GetDescendants()) do
+        		    if Icon:IsA("TextLabel") and Icon.Name == "Content" and Icon.Text == TitleOfButton then
+        			    Icon = Icon.Parent:FindFirstChild("ImageLabel")
+        			    Icon.Image = Table["OverrideIcon"]
+        		    end
+        	    end
+        	end
+	    end
+	    
+	    return TabLibrary
     end
 	
-	return Window
+	return WindowLibrary
 end
 
 function Module:ChangeWindowTitle(Title)
