@@ -241,6 +241,12 @@ function Module:ChangeWindowTitle(Title)
 end
 
 function Module.SetUserRanks(Table)
+    OrionLibInstance:MakeNotification({
+        Name = "Orogo",
+	    Content = "SetUserRanks is outdated and should refer to the new option that can be activated/used when making a window.",
+	    Image = "rbxassetid://4483345998",
+	    Time = 5
+    })
     if not IsPremiumHidden then
         for Id, Rank in pairs(Table) do
             if LocalPlayer.UserId == Id then
