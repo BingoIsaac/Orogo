@@ -88,6 +88,7 @@ function Module:AddButton(Tab, Table)
 		Name = TitleOfButton,
 		Callback = Table["Callback"] or function() print("Orogo") end
 	})
+	task.wait()
 	if Table["OverrideIcon"] ~= nil then
 	    for Index, Icon in pairs(OrionInstance:GetDescendants()) do
 		    if Icon:IsA("TextLabel") and Icon.Name == "Content" and Icon.Text == TitleOfButton then
