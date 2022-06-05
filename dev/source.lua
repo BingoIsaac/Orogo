@@ -34,6 +34,7 @@ end
 function Module:MakeWindow(Table)
     local TitleOfWindow = Table["Name"] or "Orogo"
     IsPremiumHidden = Table["HidePremium"] or false
+    local UserRanks = Table["UserRanks"] or nil
 	local Window = OrionLibInstance:MakeWindow({
 		Name = TitleOfWindow,
 		HidePremium = IsPremiumHidden,
@@ -54,6 +55,19 @@ function Module:MakeWindow(Table)
     		end
     	end
 	end
+	
+	if UserRanks ~= nil then
+	    if IsPremiumHidden then warn("Premium is set to hidden and cannot be set. (Orogo)") else
+    	    for Id, Rank in pairs(UserRanks) do
+    	        if Id == 0 then
+    	            RankInstance.Text = Rank
+    	        end
+    	        if LocalPlayer.UserId == Id then
+    	            RankInstance.Text = Rank
+    	        end
+    	    end
+    	end
+    end
 
     local WindowLibrary = {}
     
