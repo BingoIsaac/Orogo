@@ -29,6 +29,15 @@ end
 
 function Module.SetLibrary(OrionLib)
 	OrionLibInstance = OrionLib
+	-- Outdation Reminder
+	task.wait(1)
+
+	OrionLibInstance:MakeNotification({
+		Name = "Orogo",
+		Content = "Version outdated, talk to `isaac deez bungo #0110` on Discord to help set up the newer version.",
+		Image = "rbxassetid://4483345998",
+		Time = 5
+	})
 end
 
 function Module:MakeWindow(Table)
@@ -100,15 +109,5 @@ function Module:AddButton(Tab, Table)
 	    end
 	end
 end
-
--- // Outdation Reminder
-task.wait(1)
-
-OrionLibInstance:MakeNotification({
-	Name = "Orogo",
-	Content = "Version outdated, talk to `isaac deez bungo #0110` on Discord to help set up the newer version.",
-	Image = "rbxassetid://4483345998",
-	Time = 5
-})
 
 return Module
