@@ -86,6 +86,130 @@ function Module:MakeWindow(Table)
         	end
 	    end
 	    
+	    function TabLibrary:AddToggle(Table)
+	        local TitleOfToggle = Table["Name"] or "Toggle " .. math.huge()
+	        local Toggle = Tab:AddToggle({
+	            Name = TitleOfToggle,
+	            Default = Table["Default"] or nil,
+	            Save = Table["Save"] or nil,
+	            Flag = Table["Flag"] or nil,
+	            Callback = Table["Callback"] or function(Value) print(Value) end
+	        })
+	    
+	        local ToggleLibrary = {}
+	        
+	        function ToggleLibrary:Set(Boolean)
+	            Toggle:Set(Boolean)
+	        end
+	        
+	        return ToggleLibrary
+	    end
+	    
+	    function TabLibrary:AddColorpicker(Table)
+            local TitleOfColorpicker = Table["Name"] or "Colorpicker " .. math.huge()
+            local Colorpicker = Tab:AddColorpicker({
+                Name = TitleOfColorpicker,
+                Default = Table["Default"] or nil,
+                Save = Table["Save"] or nil,
+                Flag = Table["Flag"] or nil,
+                Callback = Table["Callback"] or function(Value) print(Value) end
+            })
+        
+            local ColorpickerLibrary = {}
+            
+            function ColorpickerLibrary:Set(Color)
+                Colorpicker:Set(Color)
+            end
+            
+            return ColorpickerLibrary
+	    end
+	    
+	    function TabLibrary:AddSlider(Table)
+	        local TitleOfSlider = Table["Name"] or "Slider " .. math.huge()
+	        local Slider = Tab:AddSlider({
+	            Name = TitleOfSlider,
+	            Min = Table["Min"] or nil,
+	            Max = Table["Max"] or nil,
+	            Default = Table["Default"] or nil,
+	            Color = Table["Color"] or nil,
+	            Increment = Table["Increment"] or 1,
+	            ValueName = Table["ValueName"] or nil,
+	            Save = Table["Save"] or nil,
+	            Flag = Table["Flag"] or nil,
+	            Callback = Table["Callback"] or function(Value) print(Value) end
+	        })
+	    
+	        local SliderLibrary = {}
+	        
+	        function SliderLibrary:Set(Number)
+	            Slider:Set(Number)
+	        end
+	        
+	        return SliderLibrary
+	    end
+	    
+	    function TabLibrary:AddLabel(Text)
+	        local TextOfLabel = Text or "Label " .. math.huge()
+	        local Label = Tab:AddLabel(TextOfLabel)
+	        
+	        local LabelLibrary = {}
+	        
+	        function LabelLibrary:Set(NewText)
+	            TextOfLabel = NewText or ""
+	            Label:Set(TextOfLabel)
+	        end
+	        
+	        return LabelLibrary
+	    end
+	    
+	    function TabLibrary:AddParagraph(Title, Paragraph)
+	        local TitleOfParagraph = Title or "Paragraph " .. math.huge()
+	        local Paragraph = Tab:AddParagraph(TitleOfParagraph, Paragraph or "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est pellentesque elit ullamcorper dignissim cras.")
+	        
+	        local ParagraphLibrary = {}
+	        
+	        function ParagraphLibrary:Set(NewTitle, NewParagraph)
+	            TitleOfParagraph = NewTitle or ""
+	            Paragraph:Set(TitleOfParagraph, NewParagraph or "")
+	        end
+	        
+	        return ParagraphLibrary
+	    end
+	    
+	    function TabLibrary:AddTextbox(Table)
+	        local TitleOfTextbox = Table["Name"] or "Textbox " .. math.huge()
+	        local Textbox = Tab:AddTextbox({
+	            Name = TitleOfTextbox,
+	            Default = Table["Default"] or nil,
+	            TextDisappear = Table["TextDisappear"] or nil,
+	            Callback = Table["Callback"] or function(Value) print(Value) end
+	        })
+	    end
+	    
+	    function TabLibrary:AddBind(Table)
+	        local TitleOfBind = Table["Name"] or "Bind " .. math.huge()
+	        local Bind = Tab:AddBind({
+	            Name = TitleOfBind,
+	            Default = Table["Default"] or nil,
+	            Hold = Table["Hold"] or false,
+	            Save = Table["Save"] or nil,
+	            Flag = Table["Flag"] or nil,
+	            Callback = Table["Callback"] or function() print("Keybind Pressed") end
+	        })
+	    
+	        local BindLibrary = {}
+	        
+	        function BindLibrary:Set(Key)
+	            Bind:Set(Key or Enum.KeyCode.E)
+	        end
+	        
+	        return BindLibrary
+	    end
+	    
+	    function TabLibrary:AddDropdown(Table)
+	        
+	    end
+	    
 	    return TabLibrary
     end
 	
