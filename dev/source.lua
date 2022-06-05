@@ -68,7 +68,7 @@ function Module:MakeWindow(Table)
 	    local TabLibrary = {}
 	    
 	    function TabLibrary:AddButton(Table)
-	        local TitleOfButton = Table["Name"] or "Button " .. math.huge()
+	        local TitleOfButton = Table["Name"] or "Button " .. tostring(math.huge())
             local Button = Tab:AddButton({
 		        Name = TitleOfButton,
 		        Save = Table["Save"] or nil,
@@ -87,7 +87,7 @@ function Module:MakeWindow(Table)
 	    end
 	    
 	    function TabLibrary:AddToggle(Table)
-	        local TitleOfToggle = Table["Name"] or "Toggle " .. math.huge()
+	        local TitleOfToggle = Table["Name"] or "Toggle " .. tostring(math.huge())
 	        local Toggle = Tab:AddToggle({
 	            Name = TitleOfToggle,
 	            Default = Table["Default"] or nil,
@@ -106,7 +106,7 @@ function Module:MakeWindow(Table)
 	    end
 	    
 	    function TabLibrary:AddColorpicker(Table)
-            local TitleOfColorpicker = Table["Name"] or "Colorpicker " .. math.huge()
+            local TitleOfColorpicker = Table["Name"] or "Colorpicker " .. tostring(math.huge())
             local Colorpicker = Tab:AddColorpicker({
                 Name = TitleOfColorpicker,
                 Default = Table["Default"] or nil,
@@ -125,7 +125,7 @@ function Module:MakeWindow(Table)
 	    end
 	    
 	    function TabLibrary:AddSlider(Table)
-	        local TitleOfSlider = Table["Name"] or "Slider " .. math.huge()
+	        local TitleOfSlider = Table["Name"] or "Slider " .. tostring(math.huge())
 	        local Slider = Tab:AddSlider({
 	            Name = TitleOfSlider,
 	            Min = Table["Min"] or nil,
@@ -149,7 +149,7 @@ function Module:MakeWindow(Table)
 	    end
 	    
 	    function TabLibrary:AddLabel(Text)
-	        local TextOfLabel = Text or "Label " .. math.huge()
+	        local TextOfLabel = Text or "Label " .. tostring(math.huge())
 	        local Label = Tab:AddLabel(TextOfLabel)
 	        
 	        local LabelLibrary = {}
@@ -163,7 +163,7 @@ function Module:MakeWindow(Table)
 	    end
 	    
 	    function TabLibrary:AddParagraph(Title, Paragraph)
-	        local TitleOfParagraph = Title or "Paragraph " .. math.huge()
+	        local TitleOfParagraph = Title or "Paragraph " .. tostring(math.huge())
 	        local Paragraph = Tab:AddParagraph(TitleOfParagraph, Paragraph or "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Est pellentesque elit ullamcorper dignissim cras.")
 	        
 	        local ParagraphLibrary = {}
@@ -177,7 +177,7 @@ function Module:MakeWindow(Table)
 	    end
 	    
 	    function TabLibrary:AddTextbox(Table)
-	        local TitleOfTextbox = Table["Name"] or "Textbox " .. math.huge()
+	        local TitleOfTextbox = Table["Name"] or "Textbox " .. tostring(math.huge())
 	        local Textbox = Tab:AddTextbox({
 	            Name = TitleOfTextbox,
 	            Default = Table["Default"] or nil,
@@ -187,7 +187,7 @@ function Module:MakeWindow(Table)
 	    end
 	    
 	    function TabLibrary:AddBind(Table)
-	        local TitleOfBind = Table["Name"] or "Bind " .. math.huge()
+	        local TitleOfBind = Table["Name"] or "Bind " .. tostring(math.huge())
 	        local Bind = Tab:AddBind({
 	            Name = TitleOfBind,
 	            Default = Table["Default"] or nil,
@@ -207,7 +207,7 @@ function Module:MakeWindow(Table)
 	    end
 	    
 	    function TabLibrary:AddDropdown(Table)
-	        local TitleOfDropdown = Table["Name"] or "Dropdown " .. math.huge()
+	        local TitleOfDropdown = Table["Name"] or "Dropdown " .. tostring(math.huge())
 	        local Dropdown = Tab:AddDropdown({
 	            Name = TitleOfDropdown,
 	            Default = Table["Default"] or "1",
@@ -258,25 +258,6 @@ function Module:ChangeLiveRank(Rank)
     else
         warn("Premium is set to hidden and cannot be set. (Orogo)")
     end
-end
-
-function Module:AddButton(Tab, Table)
-    local TitleOfButton = Table["Name"] or "Button " .. tostring(math.random(1, 100000))
-    local Button = Tab:AddButton({
-		Name = TitleOfButton,
-		Save = Table["Save"] or nil,
-		Flag = Table["Flag"] or nil,
-		Callback = Table["Callback"] or function() print("Orogo") end
-	})
-	task.wait()
-	if Table["OverrideIcon"] ~= nil then
-	    for Index, Icon in pairs(OrionInstance:GetDescendants()) do
-		    if Icon:IsA("TextLabel") and Icon.Name == "Content" and Icon.Text == TitleOfButton then
-			    Icon = Icon.Parent:FindFirstChild("ImageLabel")
-			    Icon.Image = Table["OverrideIcon"]
-		    end
-	    end
-	end
 end
 
 return Module
