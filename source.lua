@@ -90,7 +90,7 @@ function Module:AddButton(Tab, Table)
 	})
 	if Table["OverrideIcon"] ~= nil then
 	    for Index, Icon in pairs(OrionInstance:GetDescendants()) do
-		    if Icon:IsA("TextLabel") and Label.Name == "Content" and Label.Text == TitleOfButton then
+		    if Icon:IsA("TextLabel") and Icon.Name == "Content" and Icon.Text == TitleOfButton then
 			    Icon = Icon.Parent:FindFirstChild("ImageLabel")
 			    Icon.Image = Table["OverrideIcon"]
 		    end
