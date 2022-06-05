@@ -1,3 +1,5 @@
+# PLEASE DON'T REFER TO DOCS (OUTDATED)
+
 # OROGO DOCS
 
 Welcome to the documentation. Find where you are looking for.
