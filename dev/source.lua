@@ -60,8 +60,8 @@ function Module:MakeWindow(Table)
     function WindowLibrary:MakeTab(Table)
         local TitleOfTab = Table["Name"] or "Tab"
         local Tab = Window:MakeTab({
-            Name = TitleOfTab
-    	    Icon = Table["Icon"] or nil
+            Name = TitleOfTab,
+    	    Icon = Table["Icon"] or nil,
     	    PremiumOnly = Table["PremiumOnly"] or false
 	    })
 	
