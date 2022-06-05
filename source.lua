@@ -82,4 +82,20 @@ function Module:ChangeLiveRank(Rank)
     end
 end
 
+function Module:AddButton(Tab, Table)
+    local TitleOfButton = Table["Name"] or "Button " .. tostring(math.random(1, 100000))
+    local Button = Tab:AddButton({
+		Name = TitleOfButton,
+		Callback = Table["Callback"] or function() print("Orogo") end
+	})
+	if Table["OverrideIcon"] ~= nil then
+	    for Index, Icon in pairs(OrionInstance:GetDescendants()) do
+		    if Icon:IsA("TextLabel") and Label.Name == "Content" and Label.Text == TitleOfButton then
+			    Icon = Icon.Parent:FindFirstChild("ImageLabel")
+			    Icon.Image = Table["OverrideIcon"]
+		    end
+	    end
+	end
+end
+
 return Module
