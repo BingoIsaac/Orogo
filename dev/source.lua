@@ -207,7 +207,27 @@ function Module:MakeWindow(Table)
 	    end
 	    
 	    function TabLibrary:AddDropdown(Table)
+	        local TitleOfDropdown = Table["Name"] or "Dropdown " .. math.huge()
+	        local Dropdown = Tab:AddDropdown({
+	            Name = TitleOfDropdown,
+	            Default = Table["Default"] or "1",
+	            Options = Table["Options"] or {"1", "2", "3"},
+	            Save = Table["Save"] or nil,
+	            Flag = Table["Flag"] or nil,
+	            Callback = Table["Callback"] or function(Value) print(Value) end
+	        })
+	    
+	        local DropdownLibrary = {}
 	        
+	        function DropdownLibrary:Refresh(Table, Boolean)
+	            Dropdown:Refresh(Table, Boolean)
+	        end
+	        
+	        function DropdownLibrary:Set(Option)
+	            Dropdown:Set(Option)
+	        end
+	        
+	        return DropdownLibrary
 	    end
 	    
 	    return TabLibrary
