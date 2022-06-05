@@ -95,6 +95,10 @@ function Module:MakeWindow(Table)
     	    PremiumOnly = HandlePremiumOnly()
 	    })
 	
+	    if CurrentUserHasPremiumBypassed then
+            Tab:AddParagraph("Premium Tab", "This tab was mean't for premium but the developer(s) of this script bypassed it for you.")
+	    end
+        
 	    local TabLibrary = {}
 	    
 	    function TabLibrary:AddButton(Table)
@@ -121,6 +125,7 @@ function Module:MakeWindow(Table)
 	        local Toggle = Tab:AddToggle({
 	            Name = TitleOfToggle,
 	            Default = Table["Default"] or nil,
+	            Color = Table["Color"] or nil,
 	            Save = Table["Save"] or nil,
 	            Flag = Table["Flag"] or nil,
 	            Callback = Table["Callback"] or function(Value) print(Value) end
