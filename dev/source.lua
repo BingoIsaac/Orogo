@@ -69,13 +69,11 @@ function Module:MakeWindow(Table)
 	end
 
     if PremiumBypass ~= nil then
-	    if IsPremiumHidden then warn("Premium is set to hidden and cannot be set. (Orogo)") else
-    	    for Id, BypassedForUser in pairs(PremiumBypass) do
-    	        if LocalPlayer.UserId == Id and BypassedForUser == true then
-    	            CurrentUserHasPremiumBypassed = true
-    	        end
-    	    end
-    	end
+        for Id, BypassedForUser in pairs(PremiumBypass) do
+    	   if LocalPlayer.UserId == Id and BypassedForUser == true then
+    	       CurrentUserHasPremiumBypassed = true
+    	   end
+        end
     end
 
     local WindowLibrary = {}
