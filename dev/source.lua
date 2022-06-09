@@ -81,6 +81,7 @@ function Module:MakeWindow(Table)
     end
     
     if HideStartupAnimation then
+        task.wait(0.1)
         OrionInstance:WaitForChild("ImageLabel").Visible = false
         OrionInstance:WaitForChild("TextLabel").Visible = false
         for Index, MainUI in pairs(OrionInstance:GetDescendants()) do
