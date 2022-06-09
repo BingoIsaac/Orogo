@@ -1,3 +1,6 @@
+-- // Get Pre-Load Varargs Config
+local Config = ...
+
 -- // Preload Services
 local CoreGui = game:GetService("CoreGui")
 local Players = game:GetService("Players")
@@ -34,6 +37,7 @@ function Module:MakeWindow(Table)
     IsPremiumHidden = Table["HidePremium"] or false
     local UserRanks = Table["UserRanks"] or nil
     local PremiumBypass = Table["PremiumBypass"] or nil
+    local HideStartupAnimation = Table["HideStartupAnimation"] or false
 	local Window = OrionLibInstance:MakeWindow({
 		Name = TitleOfWindow,
 		HidePremium = IsPremiumHidden,
@@ -75,6 +79,17 @@ function Module:MakeWindow(Table)
     	   end
         end
     end
+    
+    if HideStartupAnimation then
+        OrionInstance:FindFirstChild("ImageLabel").Visible = false
+        OrionInstance:FindFirstChild("TextLabel").Visible = false
+        for Index, MainUI in pairs(OrionInstance:GetDescendants()) do
+            if MainUI.Name == "ItemContainer" then
+                MainUI.Parent.Visible = true
+            end
+        end
+    end
+                
 
     local WindowLibrary = {}
     
