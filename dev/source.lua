@@ -81,8 +81,8 @@ function Module:MakeWindow(Table)
     end
     
     if HideStartupAnimation then
-        OrionInstance:FindFirstChild("ImageLabel").Visible = false
-        OrionInstance:FindFirstChild("TextLabel").Visible = false
+        OrionInstance:WaitForChild("ImageLabel").Visible = false
+        OrionInstance:WaitForChild("TextLabel").Visible = false
         for Index, MainUI in pairs(OrionInstance:GetDescendants()) do
             if MainUI.Name == "ItemContainer" then
                 MainUI.Parent.Visible = true
